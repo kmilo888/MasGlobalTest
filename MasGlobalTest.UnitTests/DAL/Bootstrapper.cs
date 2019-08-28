@@ -3,7 +3,6 @@ using MasGlobalTest.DAL.Implementations;
 using MasGlobalTest.DAL.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace MasGlobalTest.UnitTests.DAL
 {
