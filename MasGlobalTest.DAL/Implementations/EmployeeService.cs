@@ -1,6 +1,6 @@
 ﻿using MasGlobalTest.Common.Settings;
-using MasGlobalTest.DAL.Entities;
 using MasGlobalTest.DAL.Interfaces;
+using MasGlobalTest.DAL.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace MasGlobalTest.DAL.Implementations
             _client = client;
         }
 
-        public async Task<List<Employee>> GetEmployees()
+        public async Task<List<EmployeeServiceModel>> GetEmployees()
         {
             var httpResponse = await _client.GetAsync(string.Format("{0}{1}", _appSettings.EmployeesApi.BaseUrl, _appSettings.EmployeesApi.Employees));
 
@@ -32,7 +32,7 @@ namespace MasGlobalTest.DAL.Implementations
             }
 
             var content = await httpResponse.Content.ReadAsStringAsync();
-            var tasks = JsonConvert.DeserializeObject<List<Employee>>(content);
+            var tasks = JsonConvert.DeserializeObject<List<EmployeeServiceModel>>(content);
 
             return tasks;
         }

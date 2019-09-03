@@ -1,6 +1,6 @@
-﻿namespace MasGlobalTest.DAL.Entities
+﻿namespace MasGlobalTest.DAL.Models
 {
-    public class Employee
+    public class EmployeeServiceModel
     {
         public int id { get; set; }
         public string name { get; set; }

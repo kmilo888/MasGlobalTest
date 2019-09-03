@@ -17,11 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MasGlobalTest.BLL\MasGlobalTest.BLL.csproj" />
     <ProjectReference Include="..\MasGlobalTest.DAL\MasGlobalTest.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DAL\appsettings.json">
+    <None Update="Configuration\appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

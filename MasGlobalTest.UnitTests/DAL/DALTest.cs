@@ -1,4 +1,5 @@
 using MasGlobalTest.DAL.Interfaces;
+using MasGlobalTest.UnitTests.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
@@ -12,20 +13,12 @@ namespace MasGlobalTest.UnitTests.DAL
 
         public DALTest()
         {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile(@"DAL\appsettings.json")
-                .Build();
-
             var services = new ServiceCollection();
-            services.UseServices(config);
-
-            var serviceProvider = services.BuildServiceProvider();
-
-            _service = serviceProvider.GetRequiredService<IEmployeeService>();
+            _service = services.ConfigureDALServices();
         }
 
         [Fact]
-        public async Task GetAllEmployees()
+        public async Task GetAllEmployeesFromService()
         {
             var tasks = await _service.GetEmployees();
 
